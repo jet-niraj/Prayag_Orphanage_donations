@@ -1,0 +1,53 @@
+{% load static %}
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/mystyle.css' %}">
+
+</head>
+<body>
+{% include 'navigation.html' %}
+<hr class="mt-0">
+
+
+<div class="container mb-3">
+    <h2 class="text-center">Login As a...</h2>
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="card" style="width: 300px;">
+                <img src="{% static 'imageproject/userlogin.png' %}" class="card-img-top" style="width: 100%; height: 200px;">
+                <div class="card-body">
+                    <h4 class="card-title">Donor</h4>
+                    <p class="card-text">Some example text.</p>
+                    <a href="{% url 'donor_login' %}" class="btn btn-primary">Go To Donor</a>
+                </div>
+            </div>
+        </div>
+    
+        <div class="col-lg-4">
+            <div class="card" style="width: 300px;">
+                <img src="{% static 'imageproject/volunteerlogin.jpg' %}" class="card-img-top" style="width: 100%; height: 200px;">
+                <div class="card-body">
+                    <h4 class="card-title">Volunteer</h4>
+                    <p class="card-text">Some example text.</p>
+                    <a href="{% url 'volunteer_login' %}" class="btn btn-primary">Go To Volunteer</a>
+                </div>
+            </div>
+        </div>
+        
+
+
+        <div class="col-lg-4">
+            <div class="card" style="width: 300px;">
+                <img src="{% static 'imageproject/adminlogin.webp' %}" class="card-img-top" style="width: 100%; height: 200px;">
+                <div class="card-body">
+                    <h4 class="card-title">Admin</h4>
+                    <p class="card-text">Some example text.</p>
+                    <a href="{% url 'admin_login' %}" class="btn btn-primary">Go To Admin</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+

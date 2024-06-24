@@ -1,0 +1,194 @@
+
+
+
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- Include Bootstrap CSS (choose one version) -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Include jQuery and Bootstrap JS (choose one version) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <!-- Include FontAwesome 5 JavaScript and CSS -->
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script> <!-- Replace 'yourcode.js' with the actual Font Awesome script URL -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
+    <!-- Your other CSS and JavaScript imports -->
+
+
+
+
+    <!-- ------------html table---------- -->
+    
+<!-- -----------table--- -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css">
+
+
+    
+    <link rel="stylesheet" href="{% static 'css/mystyle.css' %}">
+    <script src="{% static 'js/sidebar.js' %}"></script>
+    
+    <title>Admin</title>
+  </head>
+  <!-- Rest of your HTML content here -->
+</html>
+
+<body>
+    <div class="bg-white vertical-nav" id="sidebar">
+        <div class="py-4 px-3 bg-light mb-3">
+            <h1 class="font-weight-bold text-uppercase px-3 sidebar-title">Admin</h1>
+        
+            <div class="media d-flex align-items-center">
+                <img src="{% static 'imageproject/adminlogo.png' %}" width="80" height="80" class="mr-3 rounded-circle img-thumbnail shadow-sm">
+        
+                <div class="media-body">
+                    <h4 class="mb-0">Admin</h4>
+                    <p class="text-muted mb-0">{{ request.user.email }}</p>
+                </div>
+            </div>
+        </div>
+        
+        <ul class="nav flex-column bg-dark">
+            <li class="nav-item dropdown mb-2">
+                <a href="#" class="nav-link  text-light d-flex align-items-center" data-toggle="dropdown">
+                    <i class="fas fa-tachometer-alt fa-fw mr-2"></i>
+                    <span class="mr-3">Dashboard</span>
+                </a>
+            </li>
+        
+            <li class="nav-item dropdown mb-2">
+                <a href="#" class="nav-link dropdown-toggle text-light d-flex align-items-center" data-toggle="dropdown">
+                    <i class="fas fa-donate fa-fw mr-2"></i>
+                    <span class="mr-3">Donation Management</span>
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{% url 'pending_donation' %}">New Donation Request</a>
+                    <a class="dropdown-item" href="{% url 'accepted_donation' %}">Accept Donation</a>
+                </div>
+            </li>
+        
+            <li class="nav-item mb-2">
+                <a href="{% url 'manage_donor' %}" class="nav-link text-light d-flex align-items-center">
+                    <i class="fas fa-user-friends fa-fw mr-2"></i>
+                    Manage Donor
+                </a>
+            </li>
+        
+            <li class="nav-item dropdown mb-2">
+                <a href="#" class="nav-link dropdown-toggle text-light d-flex align-items-center" data-toggle="dropdown">
+                    <i class="fas fa-users fa-fw mr-2"></i>
+                    <span class="mr-3">Manage Volunteer</span>
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{% url 'new_volunteer' %}">New Volunteer</a>
+                    <a class="dropdown-item" href="{% url 'accepted_volunteer' %}">Accepted Volunteer</a>
+                    <a class="dropdown-item" href="{% url 'rejected_volunteer' %}">Rejected Volunteer</a>
+                    <a class="dropdown-item" href="{% url 'all_volunteer' %}">All Volunteer</a>
+                </div>
+            </li>
+        
+            <li class="nav-item dropdown mb-2">
+                <a href="#" class="nav-link dropdown-toggle text-light d-flex align-items-center" data-toggle="dropdown">
+                    <i class="fas fa-map-marker-alt fa-fw mr-2"></i>
+                    <span class="mr-3">Donation Area</span>
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{% url 'add_area' %}">Add Donation Area</a>
+                    <a class="dropdown-item" href="{% url 'manage_area' %}">Manage Donation Area</a>
+                </div>
+            </li>
+        
+            <!-- Add more dropdown items as needed -->
+        </ul>
+    </div>
+    
+    
+ 
+      
+
+
+    
+  
+    
+
+ 
+
+
+
+
+
+
+          
+       
+    </div>
+  </div>
+ 
+  <!-- Content start -->
+   <div class="page content p-4" id="content">
+   
+    <a href="{% url 'logout' %}" title="Logout" class="float-right">
+      <i class="fas fa-sign-out-alt" style="font-size: 24px; color:white;"></i>
+  </a>
+  
+
+
+    <button id="sidebarCollapse" type="button" class="btn btn-dark rounded-pill shadow-sm px-4 mb-4">
+      <i class="fas fa-bars fa-lg"></i>
+      <span class="font-weight-bold"></span>
+  </button>
+  
+  
+ 
+
+
+    {% block content %}
+
+
+    {% endblock %}
+  </div>
+  <!-- Content end -->
+
+  
+
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>
+
+<!-- Initialize DataTable -->
+<script>
+    $(document).ready(function() {
+        $('#example').DataTable( {
+            dom: 'Bfrtip',
+            buttons: [
+                'copyHtml5',
+                'excelHtml5',
+                'csvHtml5',
+                'pdfHtml5'
+            ]
+        } );
+    });
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

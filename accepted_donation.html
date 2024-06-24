@@ -1,0 +1,40 @@
+{% extends 'admin_base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="card shadow">
+    <div class="card-body">
+        <h5 class="p-2" style="border-bottom: 2px solid orange">Accepted Donation</h5>
+        <div class="container-fluid">
+            <table id="example" class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>S.no</th>
+                        <th>Donation Name</th>
+                        <th>Donation Date</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in donation %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ i.donationname }}</td>
+                        <td>{{ i.donationdate }}</td>
+                        <td>{{ i.status }}</td>
+                        <td><a href="{% url 'accepted_donationdetail' i.id %}">view details</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+{% endblock %}
