@@ -1,4 +1,4 @@
-﻿# Prayag Orphanag Donation System
+﻿# Prayag Orphanage Donation System
 
 ## Overview
 The Orphanage Donation System is a web application designed to facilitate the process of donating to orphanages. This system allows users to view various orphanages, their needs, and make donations accordingly. The application is built using HTML, CSS, Bootstrap, and Django.
